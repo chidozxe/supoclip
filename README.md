@@ -61,9 +61,10 @@ SupoClip provides the same core functionality without the financial burden:
 ```bash
 git clone https://github.com/your-username/supoclip.git
 cd supoclip
+cp .env.example .env   # copy the template
 ```
 
-Create a `.env` file in the root directory:
+Open `.env` in your editor and fill in the required values:
 
 ```env
 # Required: Video transcription
