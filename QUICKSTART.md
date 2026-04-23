@@ -29,7 +29,14 @@ That's it! The script will:
 
 ### 1. Configure Environment Variables
 
-Edit the `.env` file in the project root and add your API keys:
+Copy the template and fill in your API keys:
+
+```bash
+cp .env.example .env
+$EDITOR .env
+```
+
+Edit `.env` and add your API keys:
 
 ```bash
 # Required for video transcription
