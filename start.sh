@@ -115,7 +115,7 @@ case "$LLM_PROVIDER" in
         # Unknown / custom provider — warn but don't block startup
         if [ -z "${OPENAI_API_KEY:-}" ] && [ -z "${GOOGLE_API_KEY:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ]; then
             echo -e "${YELLOW}Warning: LLM provider '${LLM_PROVIDER}' is not recognized and no provider key is set.${NC}"
-            echo "If this is a custom provider make sure the required credentials are present in .env."
+            echo "If this is a custom provider, make sure the required credentials are present in .env."
             echo ""
         fi
         ;;
