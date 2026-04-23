@@ -39,8 +39,19 @@ cd supoclip
 
 ### 2. Create a local environment file
 
+**macOS / Linux / Git Bash:**
 ```bash
 cp .env.example .env
+```
+
+**Windows PowerShell:**
+```powershell
+Copy-Item .env.example .env
+```
+
+**Windows cmd:**
+```cmd
+copy .env.example .env
 ```
 
 Then edit `.env` and set at least:
@@ -62,15 +73,23 @@ NEXT_PUBLIC_DATAFAST_ALLOW_LOCALHOST=false
 
 Fastest option:
 
+**macOS / Linux / Git Bash:**
 ```bash
 ./start.sh
 ```
 
-Manual equivalent:
+**Windows PowerShell:**
+```powershell
+.\start.ps1
+```
+
+Manual equivalent (all platforms):
 
 ```bash
 docker-compose up -d --build
 ```
+
+> **Windows users:** See [docs/windows.md](./windows.md) for a complete walkthrough covering Docker Desktop, WSL 2, Google Gemini setup, and Windows-specific troubleshooting.
 
 ### 4. Wait for services to become healthy
 
@@ -233,6 +252,7 @@ Warning: `docker-compose down -v` deletes database and Redis data.
 
 ## Next Steps
 
+- Review [Windows Setup](./windows.md) if you are running on Windows
 - Review [Configuration](./configuration.md) before changing defaults
 - Review [App Guide](./app-guide.md) to understand the UI and workflows
 - Review [Troubleshooting](./troubleshooting.md) if tasks do not process correctly
