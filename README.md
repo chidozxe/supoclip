@@ -108,9 +108,22 @@ BETTER_AUTH_SECRET=change_this_in_production
 
 ### 2. Start the Services
 
+**macOS / Linux / Git Bash:**
 ```bash
-docker-compose up -d
+./start.sh
 ```
+
+**Windows (PowerShell):**
+```powershell
+.\start.ps1
+```
+
+**Any platform (direct Docker Compose):**
+```bash
+docker-compose up -d --build
+```
+
+> **Windows users:** See the [Windows Setup Guide](docs/windows.md) for a step-by-step walkthrough covering Docker Desktop, WSL 2, Google Gemini, and Windows-specific troubleshooting.
 
 This starts:
 - **Frontend**: http://localhost:3000

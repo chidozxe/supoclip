@@ -15,8 +15,19 @@ Run SupoClip with Docker in just one command!
 
 ## Quick Start (Single Command)
 
+**macOS / Linux / Git Bash:**
 ```bash
 ./start.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+.\start.ps1
+```
+
+**Windows (any terminal — no script required):**
+```powershell
+docker compose up -d --build
 ```
 
 That's it! The script will:
@@ -25,36 +36,63 @@ That's it! The script will:
 - Start all services
 - Show you where to access the app
 
+> **Windows users:** See [docs/windows.md](docs/windows.md) for a full Windows + Google Gemini walkthrough including Docker Desktop setup, WSL 2 notes, and common troubleshooting.
+
 ## First Time Setup
 
 ### 1. Configure Environment Variables
 
-Edit the `.env` file in the project root and add your API keys:
+Copy the template and fill in your API keys:
 
+**macOS / Linux / Git Bash:**
 ```bash
-# Required for video transcription
+cp .env.example .env
+```
+
+**Windows PowerShell:**
+```powershell
+Copy-Item .env.example .env
+```
+
+**Windows cmd:**
+```cmd
+copy .env.example .env
+```
+
+Edit `.env` and set at least:
+
+```env
+# Required: Video transcription
 ASSEMBLY_AI_API_KEY=your_assemblyai_key_here
 
-# Choose one AI provider for clip selection
-OPENAI_API_KEY=your_openai_key_here
+# Option A: Google Gemini (recommended — fast & cost-effective)
+LLM=google-gla:gemini-3-flash-preview
+GOOGLE_API_KEY=your_google_api_key_here
 
-# Configure which AI model to use
-LLM=openai:gpt-4
+# Option B: OpenAI
+# LLM=openai:gpt-4
+# OPENAI_API_KEY=your_openai_key_here
 
-# OR use Ollama locally
+# Option C: Ollama (local, no cloud key needed)
 # LLM=ollama:gpt-oss:20b
 # OLLAMA_BASE_URL=http://localhost:11434/v1
-
-# Optional: Resend for waitlist + subscription lifecycle emails
-# Required if you want hosted billing emails when SELF_HOST=false
-# RESEND_API_KEY=your_resend_api_key_here
-# RESEND_FROM_EMAIL="SupoClip <onboarding@your-domain.com>"
 ```
 
 ### 2. Start SupoClip
 
+**macOS / Linux:**
 ```bash
 ./start.sh
+```
+
+**Windows PowerShell:**
+```powershell
+.\start.ps1
+```
+
+**Or directly with Docker Compose (all platforms):**
+```powershell
+docker compose up -d --build
 ```
 
 ### 3. Access the Application
